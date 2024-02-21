@@ -1,0 +1,34 @@
+// 268. Missing Number
+/*
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+*/
+// in c++ ========================================================================
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+
+        int sum=0;
+        int n=nums.size();
+        int tsum=n*(n+1)/2;
+        for(int i=0;i<n;i++){
+            sum+=nums[i];
+            // tsum+= i+1;
+
+        }
+        return tsum-sum;
+    }
+};
+
+// in java===========================================================================
+class Solution {
+    public int missingNumber(int[] nums) {
+        int sum=0;
+        int tsum=0;
+        for(int i=0;i<nums.length;i++){
+            sum+=nums[i];
+            tsum+=i+1;
+        }
+        // return (nums.length*(nums.length+1)/2)-sum;
+        return tsum-sum;
+    }
+}
